@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:pro_image_editor/pro_image_editor.dart';
+typedef PopInvokedWithResultCallback<T> = void Function(bool didPop, T? result);
 
 /// A widget that provides a custom pop behavior when a pop action is invoked
 /// and optionally returns a result.
