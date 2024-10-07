@@ -1,6 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:pro_image_editor/pro_image_editor.dart';
-typedef PopInvokedWithResultCallback<T> = void Function(bool didPop, T? result);
+
+
+/// A widget that provides a custom pop behavior when a pop action is invoked
+/// and optionally returns a result.
+import 'package:flutter/widgets.dart';
+import 'package:pro_image_editor/pro_image_editor.dart';
 
 /// A widget that provides a custom pop behavior when a pop action is invoked
 /// and optionally returns a result.
@@ -13,7 +18,6 @@ class ExtendedPopScope<T> extends StatelessWidget {
     super.key,
     required this.child,
     this.canPop = true,
-    this.onPopInvokedWithResult,
   });
 
   /// The widget below this widget in the tree.
@@ -21,59 +25,45 @@ class ExtendedPopScope<T> extends StatelessWidget {
   /// {@macro flutter.widgets.ProxyWidget.child}
   final Widget child;
 
-  /// {@template flutter.widgets.PopScope.onPopInvokedWithResult}
-  /// Called after a route pop was handled.
-  /// {@endtemplate}
+  /// Determines whether the route can be popped or not.
   ///
-  /// It's not possible to prevent the pop from happening at the time that this
-  /// method is called; the pop has already happened. Use [canPop] to
-  /// disable pops in advance.
-  ///
-  /// This will still be called even when the pop is canceled. A pop is canceled
-  /// when the relevant [Route.popDisposition] returns false, such as when
-  /// [canPop] is set to false on a [PopScope]. The `didPop` parameter
-  /// indicates whether or not the back navigation actually happened
-  /// successfully.
-  ///
-  /// The `result` contains the pop result.
-  ///
-  /// See also:
-  ///
-  ///  * [Route.onPopInvokedWithResult], which is similar.
-  final PopInvokedWithResultCallback<T>? onPopInvokedWithResult;
-
-  /// {@template flutter.widgets.PopScope.canPop}
-  /// When false, blocks the current route from being popped.
-  ///
-  /// This includes the root route, where upon popping, the Flutter app would
-  /// exit.
-  ///
-  /// If multiple [PopScope] widgets appear in a route's widget subtree, then
-  /// each and every `canPop` must be `true` in order for the route to be
-  /// able to pop.
-  ///
-  /// [Android's predictive back](https://developer.android.com/guide/navigation/predictive-back-gesture)
-  /// feature will not animate when this boolean is false.
-  /// {@endtemplate}
+  /// If false, this will block the current route from being popped.
   final bool canPop;
+
+  /// Handle the back press and navigation pop.
+  Future<bool> _onWillPop(BuildContext context) async {
+    if (!canPop) {
+      // If pop is disabled, prevent the pop action.
+      return Future.value(false);
+    }
+
+    if (LoadingDialog.instance.hasActiveOverlay &&
+        LoadingDialog.instance.isDismissible) {
+      // If there's an active overlay and it's dismissible, hide it and block the pop.
+      LoadingDialog.instance.hide();
+      return Future.value(false);
+    }
+
+    // Allow the pop action.
+    return Future.value(true);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ListenableBuilder(
+    return WillPopScope(
+      // Handle whether the route can pop using the _onWillPop method.
+      onWillPop: () => _onWillPop(context),
+      child: ListenableBuilder(
         listenable: LoadingDialog.instance,
         builder: (_, __) {
-          return PopScope<T>(
-            canPop: canPop && !LoadingDialog.instance.hasActiveOverlay,
-            onPopInvokedWithResult: (didPop, result) {
-              if (!didPop &&
-                  LoadingDialog.instance.hasActiveOverlay &&
-                  LoadingDialog.instance.isDismissible) {
-                LoadingDialog.instance.hide();
-              }
-              onPopInvokedWithResult?.call(didPop, result);
-            },
+          return IgnorePointer(
+            // Disable interaction with the widget if the overlay is active.
+            ignoring: LoadingDialog.instance.hasActiveOverlay,
             child: child,
           );
-        });
+        },
+      ),
+    );
   }
 }
+
