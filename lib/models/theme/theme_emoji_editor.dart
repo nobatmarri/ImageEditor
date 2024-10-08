@@ -48,7 +48,7 @@ class EmojiEditorTheme {
   ///   ...
   /// )
   /// ```
-  const EmojiEditorTheme({
+  const EmojiEditorTheme( {
     this.editorBoxConstraintsBuilder,
     this.backgroundColor = const Color(0xFF121B22),
     this.scrollToDuration = Duration.zero,
@@ -73,11 +73,11 @@ class EmojiEditorTheme {
     this.categoryViewConfig,
     this.emojiViewConfig,
     this.textStyle = DefaultEmojiTextStyle,
-    this.viewOrderConfig = const ViewOrderConfig(
-      top: EmojiPickerItem.searchBar,
-      middle: EmojiPickerItem.emojiView,
-      bottom: EmojiPickerItem.categoryBar,
-    ),
+    // this.viewOrderConfig = const ViewOrderConfig(
+    //   top: EmojiPickerItem.searchBar,
+    //   middle: EmojiPickerItem.emojiView,
+    //   bottom: EmojiPickerItem.categoryBar,
+    // ),
     this.categoryTitlePadding = const EdgeInsets.only(left: 10),
     this.categoryTitleStyle = const TextStyle(
       color: Color(0xFF86959C),
@@ -120,7 +120,7 @@ class EmojiEditorTheme {
   final TextStyle textStyle;
 
   /// View order config
-  final ViewOrderConfig viewOrderConfig;
+  //final ViewOrderConfig viewOrderConfig;
 
   /// Specifies whether a drag handle is shown on the bottom sheet.
   final bool showDragHandle;
@@ -160,7 +160,7 @@ class EmojiEditorTheme {
     CategoryViewConfig? categoryViewConfig,
     EmojiViewConfig? emojiViewConfig,
     TextStyle? textStyle,
-    ViewOrderConfig? viewOrderConfig,
+    //ViewOrderConfig? viewOrderConfig,
     bool? showDragHandle,
     ThemeDraggableSheet? themeDraggableSheet,
     EdgeInsets? categoryTitlePadding,
@@ -177,7 +177,7 @@ class EmojiEditorTheme {
       categoryViewConfig: categoryViewConfig ?? this.categoryViewConfig,
       emojiViewConfig: emojiViewConfig ?? this.emojiViewConfig,
       textStyle: textStyle ?? this.textStyle,
-      viewOrderConfig: viewOrderConfig ?? this.viewOrderConfig,
+      //viewOrderConfig: viewOrderConfig ?? this.viewOrderConfig,
       showDragHandle: showDragHandle ?? this.showDragHandle,
       themeDraggableSheet: themeDraggableSheet ?? this.themeDraggableSheet,
       categoryTitlePadding: categoryTitlePadding ?? this.categoryTitlePadding,

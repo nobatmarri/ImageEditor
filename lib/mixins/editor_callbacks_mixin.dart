@@ -1,8 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Project imports:
-import 'package:pro_image_editor/pro_image_editor.dart';
+import '../models/editor_callbacks/editor_callbacks_typedef.dart';
+import '../models/editor_callbacks/pro_image_editor_callbacks.dart';
 
 /// A mixin providing access to simple editor callbacks.
 mixin SimpleCallbacksAccess on StatefulWidget {

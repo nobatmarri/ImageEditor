@@ -112,7 +112,7 @@ class EmojiEditorState extends State<EmojiEditor>
             emojiSizeMax: 32,
             replaceEmojiOnLimitExceed: false,
           ),
-      viewOrderConfig: imageEditorTheme.emojiEditor.viewOrderConfig,
+      //viewOrderConfig: imageEditorTheme.emojiEditor.viewOrderConfig,
       skinToneConfig: imageEditorTheme.emojiEditor.skinToneConfig,
       categoryViewConfig: imageEditorTheme.emojiEditor.categoryViewConfig ??
           CategoryViewConfig(
@@ -199,7 +199,7 @@ class EmojiEditorState extends State<EmojiEditor>
             },
             () {},
             () {},
-            () {},
+            //() {},
           ),
         );
       }
