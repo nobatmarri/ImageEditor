@@ -13,7 +13,6 @@ class MainEditorCallbacks extends StandaloneEditorCallbacks {
     this.onTap,
     this.onDoubleTap,
     this.onLongPress,
-    this.onPopInvoked,
     this.onAddLayer,
     this.onUpdateLayer,
     this.onRemoveLayer,
@@ -187,7 +186,7 @@ class MainEditorCallbacks extends StandaloneEditorCallbacks {
   /// See also:
   ///
   ///  * [Route.onPopInvokedWithResult], which is similar.
-  final PopInvokedWithResultCallback<dynamic>? onPopInvoked;
+ // final PopInvokedWithResultCallback<dynamic>? onPopInvoked;
 
   /// Handles the addition of a layer.
   ///

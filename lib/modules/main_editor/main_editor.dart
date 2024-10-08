@@ -1882,7 +1882,7 @@ class ProImageEditorState extends State<ProImageEditor>
               !_processFinalImage) {
             closeWarning();
           }
-          mainEditorCallbacks?.onPopInvoked?.call(didPop, result);
+         // mainEditorCallbacks?.onPopInvoked?.call(didPop, result);
         },
         child: ScreenResizeDetector(
           ignoreSafeArea: true,
