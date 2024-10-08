@@ -282,13 +282,26 @@ class _DefaultEmojiPickerViewState extends State<ProEmojiPickerView>
             buttonMode: widget.config.emojiViewConfig.buttonMode,
             child: Column(
               children: [
-                _buildCategoryView(),  // Category view
-                _buildEmojiView(),     // Emoji view
-                _buildSearchBar(),     // Search Bar
-              ],
+                widget.config.viewOrderConfig.top,
+                widget.config.viewOrderConfig.middle,
+                widget.config.viewOrderConfig.bottom,
+              ].map(
+                (item) {
+                  switch (item) {
+                    case EmojiPickerItem.categoryBar:
+                      // Category view
+                      return _buildCategoryView();
+                    case EmojiPickerItem.emojiView:
+                      // Emoji view
+                      return _buildEmojiView();
+                    case EmojiPickerItem.searchBar:
+                      // Search Bar
+                      return _buildSearchBar();
+                  }
+                },
+              ).toList(),
             ),
           );
-
         },
       ),
     );
