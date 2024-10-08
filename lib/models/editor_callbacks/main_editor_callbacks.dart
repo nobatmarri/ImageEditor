@@ -189,6 +189,7 @@ class MainEditorCallbacks extends StandaloneEditorCallbacks {
   ///  * [Route.onPopInvokedWithResult], which is similar.
   final PopInvokedWithResultCallback<dynamic>? onPopInvoked;
 
+
   /// Handles the addition of a layer.
   ///
   /// This method calls the [onAddLayer] callback with the provided [layer]
