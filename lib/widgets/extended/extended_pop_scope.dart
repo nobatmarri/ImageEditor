@@ -4,8 +4,7 @@ import 'package:pro_image_editor/pro_image_editor.dart';
 
 /// A widget that provides a custom pop behavior when a pop action is invoked
 /// and optionally returns a result.
-import 'package:flutter/widgets.dart';
-import 'package:pro_image_editor/pro_image_editor.dart';
+
 
 /// A widget that provides a custom pop behavior when a pop action is invoked
 /// and optionally returns a result.
@@ -50,9 +49,8 @@ class ExtendedPopScope<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    return PopScope(
       // Handle whether the route can pop using the _onWillPop method.
-      onWillPop: () => _onWillPop(context),
       child: ListenableBuilder(
         listenable: LoadingDialog.instance,
         builder: (_, __) {
