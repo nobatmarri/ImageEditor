@@ -3,6 +3,8 @@ import 'package:pro_image_editor/pro_image_editor.dart';
 
 /// A widget that provides a custom pop behavior when a pop action is invoked
 /// and optionally returns a result.
+// Define the typedef for the callback
+typedef PopInvokedWithResultCallback<R> = void Function(bool didPop, R result);
 class ExtendedPopScope<T> extends StatelessWidget {
   /// Creates an instance of [ExtendedPopScope].
   ///
@@ -19,7 +21,7 @@ class ExtendedPopScope<T> extends StatelessWidget {
   ///
   /// {@macro flutter.widgets.ProxyWidget.child}
   final Widget child;
-
+  //final PopInvokedWithResultCallback<dynamic>? onPopInvokedWithResult;
   /// {@template flutter.widgets.PopScope.onPopInvokedWithResult}
   /// Called after a route pop was handled.
   /// {@endtemplate}
