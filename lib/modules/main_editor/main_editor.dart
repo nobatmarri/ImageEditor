@@ -1872,10 +1872,10 @@ class ProImageEditorState extends State<ProImageEditor>
 
     return RecordInvisibleWidget(
       controller: _controllers.screenshot,
-      child: ExtendedPopScope(
+      child: PopScope(
         canPop:
             disablePopScope || stateManager.position <= 0 || _processFinalImage,
-        onPopInvokedWithResult: (didPop, result) {
+          onPopInvokedWithResult: (didPop, result) {
           if (!didPop &&
               !disablePopScope &&
               stateManager.position > 0 &&

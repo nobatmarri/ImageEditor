@@ -17,7 +17,7 @@ class ExtendedPopScope<T> extends StatelessWidget {
   const ExtendedPopScope({
     super.key,
     required this.child,
-    this.canPop = true,
+    this.canPop = true
   });
 
   /// The widget below this widget in the tree.

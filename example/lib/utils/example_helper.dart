@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:pro_image_editor/pro_image_editor.dart';
 
-import '../../Screens/photo/pages/previewImageScreen.dart';
+import '../pages/preview_img.dart';
+
 
 // Project imports:
 

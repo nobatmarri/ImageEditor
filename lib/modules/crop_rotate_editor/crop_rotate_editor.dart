@@ -1937,7 +1937,7 @@ class CropRotateEditorState extends State<CropRotateEditor>
       right: cropRotateEditorConfigs.safeArea.right,
       child: RecordInvisibleWidget(
         controller: screenshotCtrl,
-        child: ExtendedPopScope(
+        child: PopScope(
           onPopInvokedWithResult: (didPop, _) {
             _showFakeHero = true;
             _updateAllStates();
