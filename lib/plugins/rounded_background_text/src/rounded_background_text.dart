@@ -7,7 +7,7 @@ import '../rounded_background_text.dart';
 const double kDefaultInnerRadius = 8.0;
 const double kDefaultOuterRadius = 10.0;
 
-/// Gets the foreground color based on [backgroundColor]
+/// Gets the foreground color based on backgroundColor
 Color? foregroundColor(Color? backgroundColor) {
   return backgroundColor == null || backgroundColor.alpha == 0
       ? null
@@ -20,10 +20,10 @@ Color? foregroundColor(Color? backgroundColor) {
 ///
 /// See also:
 ///
-///  * [RichText], which this widget uses to render text.
-///  * [TextPainter], which is used to calculate the line metrics.
-///  * [TextStyle], used to customize the text look and feel.
-///  * [RoundedBackgroundTextPainter], the painter used to draw the background.
+///  * RichText, which this widget uses to render text.
+///  * TextPainter, which is used to calculate the line metrics.
+///  * TextStyle, used to customize the text look and feel.
+///  * RoundedBackgroundTextPainter, the painter used to draw the background.
 class RoundedBackgroundText extends StatelessWidget {
   /// Creates a rounded background text with a single style.
   RoundedBackgroundText(
@@ -44,7 +44,7 @@ class RoundedBackgroundText extends StatelessWidget {
     this.outerRadius = kDefaultOuterRadius,
   }) : text = TextSpan(text: text, style: style);
 
-  /// Creates a rounded background text based on an [InlineSpan], that can have
+  /// Creates a rounded background text based on an linespan, that can have
   /// multiple styles
   const RoundedBackgroundText.rich({
     super.key,
@@ -64,12 +64,12 @@ class RoundedBackgroundText extends StatelessWidget {
   })  : assert(innerRadius >= 0.0 && innerRadius <= 20.0),
         assert(outerRadius >= 0.0 && outerRadius <= 20.0);
 
-  /// Creates a selectable [RoundedBackgroundText]
+  /// Creates a selectable
   ///
   /// See also:
   ///
-  ///   * [SelectableText], a run of selectable text with a single style.
-  ///   * [RoundedBackgroundTextField], the editable version of this widget.
+  ///    a run of selectable text with a single style.
+  ///   , the editable version of this widget.
   static Widget selectable(
     String text, {
     Key? key,
@@ -117,12 +117,12 @@ class RoundedBackgroundText extends StatelessWidget {
     );
   }
 
-  /// Creates a selectable [RoundedBackgroundText] that can have multiple styles
+  /// Creates a selectable RoundedBackgroundText that can have multiple styles
   ///
   /// See also:
   ///
-  ///   * [SelectableText], a run of selectable text with a single style.
-  ///   * [RoundedBackgroundTextField], the editable version of this widget.
+  ///   * SelectableText, a run of selectable text with a single style.
+  ///   * RoundedBackgroundTextField, the editable version of this widget.
   static Widget selectableRich(
     TextSpan textSpan, {
     Key? key,
@@ -217,7 +217,7 @@ class RoundedBackgroundText extends StatelessWidget {
   /// is inherited from the enclosing app with
   /// `Localizations.localeOf(context)`.
   ///
-  /// See [RenderParagraph.locale] for more information.
+  /// See RenderParagraph.locale for more information.
   final Locale? locale;
 
   /// {@macro flutter.painting.textPainter.strutStyle}
@@ -313,9 +313,9 @@ class RoundedBackgroundTextPainter extends CustomPainter {
 
   @visibleForTesting
 
-  /// Compute the lines used by [RoundedBackgroundTextPainter].
+  /// Compute the lines used by RoundedBackgroundTextPainter
   ///
-  /// The text [painter] must have been already laid out:
+  /// The text painter must have been already laid out:
   /// ```dart
   /// final painter = TextPainter(
   ///  text: const TextSpan(text: testText),
