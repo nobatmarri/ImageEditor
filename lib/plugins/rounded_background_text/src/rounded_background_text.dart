@@ -632,7 +632,7 @@ class LineMetricsHelper {
   ///
   /// See also:
   ///
-  ///  * [isLast], which uses this property to check the amount of lines
+  ///  * isLast, which uses this property to check the amount of lines
   final int length;
 
   /// The override width of the line
